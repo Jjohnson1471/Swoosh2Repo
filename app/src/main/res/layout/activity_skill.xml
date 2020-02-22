@@ -35,7 +35,7 @@
         app:layout_constraintTop_toTopOf="@+id/imageView3" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/finishButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -44,6 +44,7 @@
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/buttoncolor"
+        android:onClick="onFinishClicked"
         android:text="@string/finish"
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -65,7 +66,7 @@
         app:layout_constraintTop_toBottomOf="@+id/logo" />
 
     <ToggleButton
-        android:id="@+id/toggleButton8"
+        android:id="@+id/beginnerButton"
         android:layout_width="140dp"
         android:layout_height="64dp"
         android:layout_marginStart="40dp"
@@ -74,17 +75,18 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:background="@drawable/buttoncolor"
+        android:onClick="onBeginnerClicked"
         android:text="@string/beginner"
         android:textColor="@android:color/white"
         android:textOff="@string/beginner"
         android:textOn="@string/beginner"
-        app:layout_constraintEnd_toStartOf="@+id/toggleButton9"
+        app:layout_constraintEnd_toStartOf="@+id/ballerButton"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <ToggleButton
-        android:id="@+id/toggleButton9"
+        android:id="@+id/ballerButton"
         android:layout_width="140dp"
         android:layout_height="64dp"
         android:layout_marginStart="8dp"
@@ -93,13 +95,14 @@
         android:layout_marginEnd="40dp"
         android:layout_marginRight="40dp"
         android:background="@drawable/buttoncolor"
+        android:onClick="onBallerClicked"
         android:text="@string/baller"
         android:textColor="@android:color/white"
         android:textOff="@string/baller"
         android:textOn="@string/baller"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/toggleButton8"
+        app:layout_constraintStart_toEndOf="@+id/beginnerButton"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
