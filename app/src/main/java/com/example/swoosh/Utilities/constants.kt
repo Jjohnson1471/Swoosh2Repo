@@ -1,4 +1,4 @@
-package com.example.swoosh
+package com.example.swoosh.Utilities
 
 const val SELECTED_LEAGUE = "league"
 

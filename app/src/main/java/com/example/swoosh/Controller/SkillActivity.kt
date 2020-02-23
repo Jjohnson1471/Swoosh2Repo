@@ -1,9 +1,12 @@
-package com.example.swoosh
+package com.example.swoosh.Controller
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
+import com.example.swoosh.R
+import com.example.swoosh.Utilities.SELECTED_LEAGUE
+import com.example.swoosh.Utilities.SELECTED_SKILL
 import kotlinx.android.synthetic.main.activity_skill.*
 
 class SkillActivity : BaseActivity() {
@@ -15,31 +18,31 @@ class SkillActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_skill)
         league = intent.getStringExtra(SELECTED_LEAGUE)
-        println(league)
     }
 
-    fun onBeginnerClicked() {
+    fun onBeginnerClicked(view:View) {
 
         ballerButton.isChecked = false
 
         skillLevel = "beginner"
     }
 
-    fun onBallerClicked() {
+    fun onBallerClicked(view: View) {
 
         beginnerButton.isChecked = false
 
         skillLevel = "baller"
     }
 
-    fun onFinishClicked() {
+    fun onFinishClicked(view: View) {
 
         if(skillLevel != "") {
             val finalIntent = Intent(this, FinalActivity::class.java)
             startActivity(finalIntent)
             finalIntent.putExtra(SELECTED_SKILL, skillLevel)
+            finalIntent.putExtra(SELECTED_LEAGUE, league)
         } else {
-            Toast.makeText(this, "Please select skill level", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Please select a skill level", Toast.LENGTH_SHORT).show()
         }
 
     }
