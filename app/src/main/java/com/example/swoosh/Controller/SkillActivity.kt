@@ -4,46 +4,46 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import com.example.swoosh.Model.Player
 import com.example.swoosh.R
-import com.example.swoosh.Utilities.SELECTED_LEAGUE
-import com.example.swoosh.Utilities.SELECTED_SKILL
 import kotlinx.android.synthetic.main.activity_skill.*
 
 class SkillActivity : BaseActivity() {
 
-    var league: String? = ""
-    var skillLevel = ""
+     var player: Player? = Player("", "")
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_skill)
-        league = intent.getStringExtra(SELECTED_LEAGUE)
+        player =intent.getParcelableExtra("EXTRA_PLAYER")
+
     }
 
-    fun onBeginnerClicked(view:View) {
 
-        ballerButton.isChecked = false
+        fun onBeginnerClicked(view: View) {
 
-        skillLevel = "beginner"
-    }
+            ballerButton.isChecked = false
 
-    fun onBallerClicked(view: View) {
-
-        beginnerButton.isChecked = false
-
-        skillLevel = "baller"
-    }
-
-    fun onFinishClicked(view: View) {
-
-        if(skillLevel != "") {
-            val finalIntent = Intent(this, FinalActivity::class.java)
-            startActivity(finalIntent)
-            finalIntent.putExtra(SELECTED_SKILL, skillLevel)
-            finalIntent.putExtra(SELECTED_LEAGUE, league)
-        } else {
-            Toast.makeText(this, "Please select a skill level", Toast.LENGTH_SHORT).show()
+            player?.skill = "beginner"
         }
 
+        fun onBallerClicked(view: View) {
+
+            beginnerButton.isChecked = false
+
+            player?.skill = "baller"
+        }
+
+        fun onFinishClicked(view: View) {
+
+            if (player?.skill != "") {
+                val finalIntent = Intent(this, FinalActivity::class.java)
+                finalIntent.putExtra("EXTRA_PLAYER", player)
+                startActivity(finalIntent)
+            } else {
+                Toast.makeText(this, "Please select a league level", Toast.LENGTH_SHORT).show()
+            }
+
+        }
     }
-}

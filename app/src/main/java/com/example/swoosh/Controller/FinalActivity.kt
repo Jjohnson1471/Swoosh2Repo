@@ -1,11 +1,10 @@
 package com.example.swoosh.Controller
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.example.swoosh.Model.Player
 import com.example.swoosh.R
-import com.example.swoosh.Utilities.SELECTED_LEAGUE
-import com.example.swoosh.Utilities.SELECTED_SKILL
 import kotlinx.android.synthetic.main.activity_final.*
 
 class FinalActivity : AppCompatActivity() {
@@ -15,10 +14,9 @@ class FinalActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_final)
 
-        val league = intent.getStringExtra(SELECTED_LEAGUE)
-        val skilllevel = intent.getStringExtra(SELECTED_SKILL)
+        val player = intent.getParcelableExtra<Player>("EXTRA_PLAYER")
 
-        searchLeaguesText.text = "Looking for a $league $skilllevel near you..."
+        searchLeaguesText.text = "Looking for a ${player?.skill} ${player?.league} league near you..."
 
     }
 
