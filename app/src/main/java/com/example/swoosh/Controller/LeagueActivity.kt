@@ -19,7 +19,7 @@ class LeagueActivity : BaseActivity() {
         }
 
     fun onMensClicked(view: View) {
-        !womensLeagueButton.isChecked    //Simplified Boolean Expression
+        womensLeagueButton.isChecked = false
         coedButton.isChecked = false
 
         selectedLeague = "mens"
@@ -27,16 +27,16 @@ class LeagueActivity : BaseActivity() {
     }
 
     fun onWomensClicked(view:View) {
-        !mensLeagueButton.isChecked
-        !coedButton.isChecked
+        mensLeagueButton.isChecked = false
+        coedButton.isChecked = false
 
         selectedLeague = "womens"
 
     }
 
     fun onCoedClicked(view: View) {
-        !mensLeagueButton.isChecked
-        !womensLeagueButton.isChecked
+        mensLeagueButton.isChecked = false
+        womensLeagueButton.isChecked = false
 
         selectedLeague = "co-ed"
 
@@ -45,9 +45,11 @@ class LeagueActivity : BaseActivity() {
     fun nextLeagueClicked(view: View) {
         if (selectedLeague != "") {
             val skillIntent = Intent(this, SkillActivity::class.java)
-            skillIntent.putExtra(SELECTED_LEAGUE, selectedLeague)
+            skillIntent.putExtra(SELECTED_LEAGUE , selectedLeague)
 
-                startActivity(skillIntent)} else {
+            println("Here is th const: $SELECTED_LEAGUE, here is the value of that const: $selectedLeague")
+
+            startActivity(skillIntent) } else {
             Toast.makeText(this, "Please make a selection before continuing", Toast.LENGTH_SHORT).show()
         }
     }

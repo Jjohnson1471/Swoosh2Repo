@@ -19,13 +19,16 @@
     <string name="background_image1">Background image</string>
     <string name="app_logo1">App logo</string>
     <string name="get_started">GET STARTED</string>
-    <string name="background_image">Background image</string>
+    <string name="background_image2">Background image</string>
     <string name="finish">FINISH</string>
     <string name="i_am_a">I am a</string>
-    <string name="beginner">Beginner</string>
-    <string name="beginner">Beginner</string>
-    <string name="beginner">Beginner</string>
-    <string name="baller">Baller</string>
-    <string name="baller">Baller</string>
-    <string name="baller">Baller</string>
+    <string name="beginner">Beginner</string>3
+    <string name="beginner1">Beginner</string>
+    <string name="beginner2">Beginner</string>
+    <string name="baller3">Baller</string>
+    <string name="baller4">Baller</string>
+    <string name="baller5">Baller</string>
+    <string name="baller">BALLER</string>
+    <string name="baller1">BALLER</string>
+    <string name="baller2">BALLER</string>
 </resources>

@@ -15,6 +15,5 @@ class WelcomeActivity : BaseActivity() {
             val leagueIntent = Intent(this, LeagueActivity::class.java)
             startActivity(leagueIntent)
         }
-
-    78}
+    }
 }

@@ -18,6 +18,7 @@ class SkillActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_skill)
         league = intent.getStringExtra(SELECTED_LEAGUE)
+        println("$league This is where the league should display")
     }
 
     fun onBeginnerClicked(view:View) {
@@ -38,9 +39,11 @@ class SkillActivity : BaseActivity() {
 
         if(skillLevel != "") {
             val finalIntent = Intent(this, FinalActivity::class.java)
-            startActivity(finalIntent)
             finalIntent.putExtra(SELECTED_SKILL, skillLevel)
             finalIntent.putExtra(SELECTED_LEAGUE, league)
+            println("$SELECTED_LEAGUE and $skillLevel this is where the things are")
+
+            startActivity(finalIntent)
         } else {
             Toast.makeText(this, "Please select a skill level", Toast.LENGTH_SHORT).show()
         }
