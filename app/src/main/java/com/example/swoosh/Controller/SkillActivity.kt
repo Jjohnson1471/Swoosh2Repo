@@ -1,47 +1,43 @@
 package com.example.swoosh.Controller
 
+import Model.Player
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import com.example.swoosh.R
-import com.example.swoosh.Utilities.SELECTED_LEAGUE
-import com.example.swoosh.Utilities.SELECTED_SKILL
+import com.example.swoosh.Utilities.EXTRA_PLAYER
 import kotlinx.android.synthetic.main.activity_skill.*
 
 class SkillActivity : BaseActivity() {
 
-    var league: String? = ""
-    var skillLevel = ""
+    lateinit var player: Player
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_skill)
-        league = intent.getStringExtra(SELECTED_LEAGUE)
-        println("$league This is where the league should display")
+        player = intent.getParcelableExtra(EXTRA_PLAYER)!!
     }
 
     fun onBeginnerClicked(view:View) {
 
         ballerButton.isChecked = false
 
-        skillLevel = "beginner"
+        player.skill = "beginner"
     }
 
     fun onBallerClicked(view: View) {
 
         beginnerButton.isChecked = false
 
-        skillLevel = "baller"
+        player.skill = "baller"
     }
 
     fun onFinishClicked(view: View) {
 
-        if(skillLevel != "") {
+        if(player.skill != "") {
             val finalIntent = Intent(this, FinalActivity::class.java)
-            finalIntent.putExtra(SELECTED_SKILL, skillLevel)
-            finalIntent.putExtra(SELECTED_LEAGUE, league)
-            println("$SELECTED_LEAGUE and $skillLevel this is where the things are")
+            finalIntent.putExtra(EXTRA_PLAYER, player)
 
             startActivity(finalIntent)
         } else {
